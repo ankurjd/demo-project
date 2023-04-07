@@ -1,0 +1,35 @@
+diff --git a/node_modules/@benjeau/react-native-draw/src/Canvas.tsx b/node_modules/@benjeau/react-native-draw/src/Canvas.tsx
+index 2786e14..eb08526 100644
+--- a/node_modules/@benjeau/react-native-draw/src/Canvas.tsx
++++ b/node_modules/@benjeau/react-native-draw/src/Canvas.tsx
+@@ -160,6 +160,11 @@ export interface CanvasRef {
+    * Get SVG path string of the drawing
+    */
+   getSvg: () => string;
++
++    /**
++   * Get Features 
++   */
++  getFeatures: () => string;
+ }
+ 
+ /**
+@@ -282,6 +287,10 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
+ 
+     const getPaths = () => paths;
+ 
++    const getFeatures = () => {
++      return `Features received`
++    };
++
+     const addPath = (newPath: PathType) =>
+       setPaths((prev) => [...prev, newPath]);
+ 
+@@ -323,6 +332,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
+       getPaths,
+       addPath,
+       getSvg,
++      getFeatures,
+     }));
+ 
+     useEffect(
